@@ -36,7 +36,7 @@ func TestRobot_SendNews(t *testing.T) {
 		{
 			Title:       "卡片消息标题",
 			Description: "卡片消息描述",
-			Url:         "https://happysooner.com",
+			URL:         "https://happysooner.com",
 			Picurl:      "http://res.mail.qq.com/node/ww/wwopenmng/images/independent/doc/test_pic_msg1.png",
 		},
 	}

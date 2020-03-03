@@ -3,6 +3,7 @@ package workWechatRobot
 import (
 	"encoding/json"
 	"fmt"
+
 	"github.com/unliar/utils/go/http"
 )
 
@@ -12,18 +13,21 @@ type Robot struct {
 	Key string
 }
 
+// RobotResponse 机器人接口响应
 type RobotResponse struct {
 	ErrorCode    int64  `json:"errcode"`
 	ErrorMessage string `json:"errmsg"`
 }
 
+// NewsItem 图文消息item
 type NewsItem struct {
 	Title       string `json:"title"`                 // 标题，不超过128个字节，超过会自动截断
 	Description string `json:"description,omitempty"` // 描述，不超过512个字节，超过会自动截断
-	Url         string `json:"url"`                   // 点击后跳转的链接。
+	URL         string `json:"url"`                   // 点击后跳转的链接。
 	Picurl      string `json:"picurl,omitempty"`      // 图文消息的图片链接，支持JPG、PNG格式，较好的效果为大图 1068*455，小图150*150。
 }
 
+// RobotRequest 消息请求体
 type RobotRequest struct {
 	MsgType string `json:"msgtype"`
 	Text    struct {
@@ -41,11 +45,12 @@ type RobotRequest struct {
 	} `json:"news,omitempty"`
 }
 
+// CreateBaseURL 拼接地址
 func (r *Robot) CreateBaseURL() string {
 	return fmt.Sprintf("https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=%s", r.Key)
 }
 
-// 发送纯文本
+// SendText 发送纯文本
 func (r *Robot) SendText(text string) (res *RobotResponse, err error) {
 	data := RobotRequest{
 		MsgType: "text",
@@ -64,7 +69,7 @@ func (r *Robot) SendText(text string) (res *RobotResponse, err error) {
 	return
 }
 
-// 发送markdown
+// SendMarkdown 发送markdown
 func (r *Robot) SendMarkdown(markdown string) (res *RobotResponse, err error) {
 	data := RobotRequest{
 		MsgType: "markdown",
@@ -83,7 +88,7 @@ func (r *Robot) SendMarkdown(markdown string) (res *RobotResponse, err error) {
 	return
 }
 
-// 发送图片
+// SendImage 发送图片
 func (r *Robot) SendImage(base64, md5 string) (res *RobotResponse, err error) {
 	data := RobotRequest{
 		MsgType: "image",
@@ -104,7 +109,7 @@ func (r *Robot) SendImage(base64, md5 string) (res *RobotResponse, err error) {
 	return
 }
 
-// 发送图文
+// SendNews 发送图文
 func (r *Robot) SendNews(news []*NewsItem) (res *RobotResponse, err error) {
 	data := RobotRequest{
 		MsgType: "news",
