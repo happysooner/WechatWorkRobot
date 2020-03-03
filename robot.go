@@ -115,7 +115,6 @@ func (r *Robot) SendNews(news []*NewsItem) (res *RobotResponse, err error) {
 		},
 	}
 	baseURL := r.CreateBaseURL()
-	fmt.Println(news[0])
 	b, err := http.Post(baseURL, data, nil)
 	if err != nil {
 		return nil, err
