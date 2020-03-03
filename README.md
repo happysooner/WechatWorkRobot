@@ -1,4 +1,4 @@
-# 企业微信群机器人 sdk 🤖
+# 企业微信群机器人 sdk 🤖 ![test](https://github.com/happysooner/workWechatRobot/workflows/test/badge.svg)
 
 > 企业微信机器人发送消息 sdk,[官方文档](https://work.weixin.qq.com/api/doc/90000/90136/91770)
 
