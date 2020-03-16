@@ -4,14 +4,13 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-go@v2-beta
-      env:
-          KEY: ${{ secrets.KEY }}
-      with:
-          go-version: '^1.14.0' 
-    - run: go test
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2-beta
+        env:
+          BotKEY: ${{ secrets.BotKEY }}
+        with:
+          go-version: "^1.14.0"
+      - run: go test
