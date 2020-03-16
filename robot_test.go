@@ -6,12 +6,12 @@ import (
 	"testing"
 )
 
-var key = os.Getenv("BotKEY")
+var key = os.Getenv("BOT_KEY")
 
 var robot = Robot{Key: key}
 
 func TestRobot_SendText(t *testing.T) {
-	fmt.Println("BotKEY", key)
+	fmt.Println("BOT_KEY", key)
 	res, _ := robot.SendText("文本发送测试！")
 	if res.ErrorCode != 0 {
 		t.Fatal(res.ErrorMessage)
