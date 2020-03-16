@@ -63,7 +63,10 @@ func (r *Robot) SendText(text string) (res *RobotResponse, err error) {
 	baseURL := r.CreateBaseURL()
 	b, err := http.Post(baseURL, data, nil)
 	if err != nil {
-		return nil, err
+		return &RobotResponse{
+			ErrorCode:    -1,
+			ErrorMessage: "请求出错",
+		}, err
 	}
 	_ = json.Unmarshal(b, &res)
 	return
@@ -82,7 +85,10 @@ func (r *Robot) SendMarkdown(markdown string) (res *RobotResponse, err error) {
 	baseURL := r.CreateBaseURL()
 	b, err := http.Post(baseURL, data, nil)
 	if err != nil {
-		return nil, err
+		return &RobotResponse{
+			ErrorCode:    -1,
+			ErrorMessage: "请求出错",
+		}, err
 	}
 	_ = json.Unmarshal(b, &res)
 	return
@@ -103,7 +109,10 @@ func (r *Robot) SendImage(base64, md5 string) (res *RobotResponse, err error) {
 	baseURL := r.CreateBaseURL()
 	b, err := http.Post(baseURL, data, nil)
 	if err != nil {
-		return nil, err
+		return &RobotResponse{
+			ErrorCode:    -1,
+			ErrorMessage: "请求出错",
+		}, err
 	}
 	_ = json.Unmarshal(b, &res)
 	return
@@ -122,7 +131,10 @@ func (r *Robot) SendNews(news []*NewsItem) (res *RobotResponse, err error) {
 	baseURL := r.CreateBaseURL()
 	b, err := http.Post(baseURL, data, nil)
 	if err != nil {
-		return nil, err
+		return &RobotResponse{
+			ErrorCode:    -1,
+			ErrorMessage: "请求出错",
+		}, err
 	}
 	_ = json.Unmarshal(b, &res)
 	return
