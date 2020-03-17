@@ -1,4 +1,4 @@
-module github.com/happysooner/workWechatRobot
+module github.com/happysooner/WechatWorkRobot
 
 go 1.14
 

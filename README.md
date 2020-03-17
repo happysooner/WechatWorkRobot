@@ -7,7 +7,7 @@
 > key 是指机器人接口的 queryString 中参数 key 的值,消息频率官方限制在 20/min,需要自行限制
 
 ```
-import "github.com/happysooner/workWechatRobot"
+import "github.com/happysooner/WechatWorkRobot"
 
 var robot = Robot{Key: "一个神秘的key"}
 

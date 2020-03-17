@@ -1,4 +1,4 @@
-package workWechatRobot
+package WechatWorkRobot
 
 import (
 	"fmt"
